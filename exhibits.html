@@ -82,7 +82,7 @@
       і перенесіть у alt текст з aria-label заглушки. Звірте опис зі справжнім знімком:
       alt має казати, що саме видно на фото і навіщо воно тут, а не просто «фото» чи «експонат».
     -->
-    <div class="scm-grid exhibits-grid">
+    <div class="scm-grid exhibits-grid" id="exhibits-grid">
 
       <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex1">
         <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_01</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
@@ -162,6 +162,10 @@
         </div>
       </article>
 
+    </div>
+    <!-- Кнопку показує site.js, коли ховає частину карток; без JS видно всі експонати -->
+    <div class="exhibits-more" hidden>
+      <button class="scm-btn scm-btn--secondary scm-btn--md" type="button" id="exhibits-more" aria-controls="exhibits-grid"><span>Показати більше</span></button>
     </div>
     <div class="section-footer">
       <p class="section-note">Фото, описи й роки — тимчасові. Виробників ще не надано.<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></p>

@@ -28,6 +28,12 @@
   white-space: nowrap;
 }
 
+/* «Показати більше» під сіткою */
+.exhibits-more { display: flex; justify-content: center; margin-top: var(--space-5); }
+.exhibits-more[hidden],
+.exhibit-card[hidden] { display: none; }
+.exhibit-card:focus { outline: var(--frame-width) solid var(--text); outline-offset: var(--space-1); }
+
 /* Телефон: картки строго одна під одною (сітка системи дає 2 колонки до 599) */
 @media (max-width: 767px) {
   .exhibits-grid { grid-template-columns: minmax(0, 1fr); }

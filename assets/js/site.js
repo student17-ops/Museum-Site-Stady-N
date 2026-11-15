@@ -67,6 +67,31 @@
     if (saved === 'ua' || saved === 'en') setLang(saved);
   } catch (err) { /* без сховища */ }
 
+  /* ---------- «Показати більше» в сітці експонатів ----------
+   * Спершу видно EXHIBITS_STEP карток (один ряд на широкому екрані), кожне натискання
+   * відкриває ще стільки ж. Фокус переходить на першу відкриту картку, щоб клавіатурою
+   * не довелося шукати нове місце. Коли прихованих не лишилося, кнопка зникає.
+   */
+  var EXHIBITS_STEP = 3;
+  var moreBtn = document.getElementById('exhibits-more');
+  var exhibitsGrid = document.getElementById('exhibits-grid');
+  if (moreBtn && exhibitsGrid) {
+    var moreBox = moreBtn.parentElement;
+    var cards = Array.prototype.slice.call(exhibitsGrid.querySelectorAll('.exhibit-card'));
+    if (cards.length > EXHIBITS_STEP) {
+      cards.forEach(function (card, i) { if (i >= EXHIBITS_STEP) card.hidden = true; });
+      moreBox.hidden = false;
+      moreBtn.addEventListener('click', function () {
+        var rest = cards.filter(function (card) { return card.hidden; });
+        var next = rest.slice(0, EXHIBITS_STEP);
+        next.forEach(function (card) { card.hidden = false; });
+        next[0].setAttribute('tabindex', '-1');
+        next[0].focus();
+        if (rest.length <= EXHIBITS_STEP) moreBox.hidden = true;
+      });
+    }
+  }
+
   /* ---------- Форма запису ---------- */
   var form = document.getElementById('booking-form');
   if (!form) return;
