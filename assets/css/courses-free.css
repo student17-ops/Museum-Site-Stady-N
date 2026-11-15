@@ -1,0 +1,27 @@
+/*
+ * Сторінка «Курси музею» (courses-free.html).
+ * Лише var(--…) з tokens.css; числа — тільки в @media (правило системи).
+ * Мета: основний текст не дрібніший за --type-body (18 px), тому піднімаємо
+ * рядки умов курсу, примітки й копірайт, які в системі мають 16 px.
+ */
+
+.free-courses .scm-facts__row,
+.free-courses .section-note,
+.free-courses .scm-footer__copy,
+.free-courses .scm-footer__contacts { font: var(--type-body); }
+.free-courses .scm-badge { font-size: var(--type-body-size); }
+
+.free-courses .scm-facts__row { align-items: start; }
+.free-courses .scm-facts__row .scm-icon { margin-top: var(--space-1); }
+
+/* Кнопка-дзвінок: іконка телефону поруч зі словами */
+.course-call { gap: var(--space-2); }
+
+.call-note { margin: var(--space-6) 0 0; }
+.call-note a { display: inline-flex; align-items: center; min-height: var(--tap-min); font-weight: 600; }
+
+/* Смартфон: умови курсу в стовпчик — назва умови над значенням, щоб нічого не стискалося */
+@media (max-width: 599px) {
+  .free-courses .scm-facts__row { grid-template-columns: var(--icon-sm) 1fr; }
+  .free-courses .scm-facts__row dd { grid-column: 2; }
+}

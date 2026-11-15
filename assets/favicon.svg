@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- Favicon: піксельна іконка монітора (i-monitor з дизайн-системи), білим на фірмовому синьому #233a7e, токен brand-primary -->
+  <rect width="16" height="16" fill="#233a7e"/>
+  <path fill="#ffffff" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM6 5h3v1h-3zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h14v1h-14zM6 10h4v1h-4zM6 11h4v1h-4zM3 12h10v1h-10zM3 13h10v1h-10z"/>
+</svg>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Курси музею — Software and Computer Museum</title>
+<meta name="description" content="Курси Software and Computer Museum для дітей, підлітків і дорослих. Запис телефоном: 067 539 4095.">
+<link rel="preload" href="assets/scm/fonts/Handjet-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/scm/fonts/Handjet-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/scm/components/bundle.css">
+<link rel="stylesheet" href="assets/css/page.css">
+<link rel="stylesheet" href="assets/css/courses-free.css">
+<script src="assets/js/site.js" defer></script>
+</head>
+<body class="free-courses">
+
+<!-- Піксельні іконки дизайн-системи (сітка 16×16, колір — currentColor) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-clock" viewBox="0 0 16 16"><path fill="currentColor" d="M5 0h6v1h-6zM3 1h2v1h-2zM11 1h2v1h-2zM2 2h1v1h-1zM13 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM7 4h1v1h-1zM14 4h1v1h-1zM0 5h1v1h-1zM7 5h1v1h-1zM15 5h1v1h-1zM0 6h1v1h-1zM7 6h1v1h-1zM15 6h1v1h-1zM0 7h1v1h-1zM7 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM7 8h5v1h-5zM15 8h1v1h-1zM0 9h1v1h-1zM15 9h1v1h-1zM0 10h1v1h-1zM15 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM2 13h1v1h-1zM13 13h1v1h-1zM3 14h2v1h-2zM11 14h2v1h-2zM5 15h6v1h-6z"/></symbol>
+  <symbol id="i-people" viewBox="0 0 16 16"><path fill="currentColor" d="M2 2h4v1h-4zM10 2h4v1h-4zM2 3h4v1h-4zM10 3h4v1h-4zM2 4h4v1h-4zM10 4h4v1h-4zM2 5h4v1h-4zM10 5h4v1h-4zM2 7h4v1h-4zM10 7h4v1h-4zM1 8h6v1h-6zM9 8h6v1h-6zM1 9h6v1h-6zM9 9h6v1h-6zM1 10h6v1h-6zM9 10h6v1h-6zM1 11h6v1h-6zM9 11h6v1h-6zM1 12h6v1h-6zM9 12h6v1h-6zM1 13h6v1h-6zM9 13h6v1h-6z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16"><path fill="currentColor" d="M2 2h12v1h-12zM1 3h14v1h-14zM0 4h3v1h-3zM13 4h3v1h-3zM0 5h3v1h-3zM13 5h3v1h-3zM5 6h6v1h-6zM4 7h8v1h-8zM3 8h10v1h-10zM2 9h3v1h-3zM6 9h1v1h-1zM9 9h1v1h-1zM11 9h3v1h-3zM2 10h12v1h-12zM2 11h3v1h-3zM6 11h1v1h-1zM9 11h1v1h-1zM11 11h3v1h-3zM2 12h12v1h-12zM2 13h12v1h-12z"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 16 16"><path fill="currentColor" d="M3 1h2v1h-2zM11 1h2v1h-2zM1 2h14v1h-14zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h2v1h-2zM7 5h2v1h-2zM11 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM3 6h2v1h-2zM7 6h2v1h-2zM11 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h2v1h-2zM7 8h2v1h-2zM11 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h2v1h-2zM7 9h2v1h-2zM11 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h2v1h-2zM7 11h2v1h-2zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h2v1h-2zM7 12h2v1h-2zM14 12h1v1h-1zM1 13h1v1h-1zM14 13h1v1h-1zM1 14h14v1h-14z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16"><path fill="currentColor" d="M1 3h14v1h-14zM1 4h14v1h-14zM1 7h14v1h-14zM1 8h14v1h-14zM1 11h14v1h-14zM1 12h14v1h-14z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 16 16"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM6 5h3v1h-3zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h14v1h-14zM6 10h4v1h-4zM6 11h4v1h-4zM3 12h10v1h-10zM3 13h10v1h-10z"/></symbol>
+</svg>
+
+<!-- Шапка -->
+<header class="scm-header" data-theme="light">
+  <div class="scm-header__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <nav class="scm-header__nav" id="scm-nav" aria-label="Розділи сайту">
+      <ul>
+        <li><a href="index.html#excursions">Екскурсії</a></li>
+        <li><a href="exhibits.html">Експонати</a></li>
+        <li><a href="courses.html">Курси</a></li>
+        <li><a href="index.html#contacts">Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="scm-header__tools">
+      <div class="scm-lang" role="group" aria-label="Мова сайту">
+        <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+        <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="scm-btn scm-btn--primary scm-btn--md scm-header__cta" href="index.html#booking"><span>Записатися</span></a>
+      <button class="scm-header__menu" type="button" aria-expanded="false" aria-controls="scm-nav">
+        <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <span>Меню</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Перший екран -->
+<section class="scm-hero" id="top" data-theme="inverse" aria-labelledby="hero-title">
+  <div class="scm-hero__in hero-text">
+    <p class="scm-prompt" aria-hidden="true">C:\MUSEUM\КУРСИ&gt; dir<span class="scm-cursor"></span></p>
+    <h1 class="scm-display" id="hero-title">Курси музею</h1>
+    <p class="scm-lead">Заняття в невеликих групах для дітей, підлітків і дорослих. Пояснюємо просто, без технічного жаргону. Записатися можна телефоном: <a href="tel:+380675394095">067 539 4095</a>.</p>
+  </div>
+</section>
+
+<!-- Курси -->
+<section class="section" id="courses" data-theme="light" aria-labelledby="courses-title">
+  <div class="page-container">
+    <header class="scm-section-header section-head">
+      <p class="scm-prompt" aria-hidden="true">C:\MUSEUM\КУРСИ&gt; dir /w</p>
+      <h2 class="scm-h2" id="courses-title">Оберіть курс</h2>
+      <p class="scm-lead">Натисніть «Записатися на курс» — телефон наб’є номер музею, і ми підберемо Вам групу.</p>
+    </header>
+
+    <div class="scm-grid">
+
+      <article class="scm-window scm-offer" aria-labelledby="c1-title">
+        <div class="scm-window__bar"><span class="scm-window__title">КУРС_01</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="c1-title">Програмування для підлітків</h3>
+          <dl class="scm-facts">
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-people"/></svg><dt>Для кого</dt><dd>Школярі 12–16 років</dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg><dt>Формат</dt><dd>Уточнюється<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><dt>Кількість занять</dt><dd>8 занять по 90 хвилин</dd></div>
+          </dl>
+        </div>
+        <div class="scm-window__footer">
+          <p class="scm-price">2 400 ₴ <span class="scm-price__unit">/ курс</span></p>
+          <a class="scm-btn scm-btn--primary scm-btn--md scm-btn--block course-call" href="tel:+380675394095" aria-label="Записатися на курс «Програмування для підлітків»: зателефонувати 067 539 4095"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Записатися на курс</span></a>
+        </div>
+      </article>
+
+      <article class="scm-window scm-offer" aria-labelledby="c2-title">
+        <div class="scm-window__bar"><span class="scm-window__title">КУРС_02</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="c2-title">Комп'ютер без страху</h3>
+          <dl class="scm-facts">
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-people"/></svg><dt>Для кого</dt><dd>Дорослі 40+, без попереднього досвіду</dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg><dt>Формат</dt><dd>Уточнюється<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><dt>Кількість занять</dt><dd>6 занять по 60 хвилин</dd></div>
+          </dl>
+        </div>
+        <div class="scm-window__footer">
+          <p class="scm-price">1 500 ₴ <span class="scm-price__unit">/ курс</span></p>
+          <a class="scm-btn scm-btn--primary scm-btn--md scm-btn--block course-call" href="tel:+380675394095" aria-label="Записатися на курс «Комп'ютер без страху»: зателефонувати 067 539 4095"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Записатися на курс</span></a>
+        </div>
+      </article>
+
+      <article class="scm-window scm-offer" aria-labelledby="c3-title">
+        <div class="scm-window__bar"><span class="scm-window__title">КУРС_03</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="c3-title">Ретроігри своїми руками</h3>
+          <dl class="scm-facts">
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-people"/></svg><dt>Для кого</dt><dd>Діти 9–12 років разом з батьками</dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg><dt>Формат</dt><dd>Уточнюється<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></dd></div>
+            <div class="scm-facts__row"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><dt>Кількість занять</dt><dd>4 заняття по 90 хвилин</dd></div>
+          </dl>
+        </div>
+        <div class="scm-window__footer">
+          <p class="scm-price">1 200 ₴ <span class="scm-price__unit">/ курс</span></p>
+          <a class="scm-btn scm-btn--primary scm-btn--md scm-btn--block course-call" href="tel:+380675394095" aria-label="Записатися на курс «Ретроігри своїми руками»: зателефонувати 067 539 4095"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span>Записатися на курс</span></a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="section-note">Назви, вік і тривалість курсів — тимчасові, як і на головній сторінці. Формат музей ще має підтвердити.<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></p>
+    <p class="call-note">Маєте запитання? Телефонуйте: <a href="tel:+380675394095">067 539 4095</a></p>
+  </div>
+</section>
+
+</main>
+
+<!-- Підвал -->
+<footer class="scm-footer" data-theme="inverse">
+  <div class="scm-footer__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <p class="scm-footer__contacts">вул. Прикладна, 1, Київ<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span> · <a href="tel:+380675394095">067 539 4095</a></p>
+    <div class="scm-lang" role="group" aria-label="Мова сайту">
+      <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+      <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <p class="scm-footer__copy">© 2026 Software and Computer Museum</p>
+  </div>
+</footer>
+
+</body>
+</html>

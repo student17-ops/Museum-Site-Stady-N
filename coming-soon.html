@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software and Computer Museum — сайт у розробці</title>
+<meta name="description" content="Сайт Software and Computer Museum у розробці.">
+<link rel="preload" href="assets/scm/fonts/Handjet-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/scm/fonts/Handjet-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/scm/components/bundle.css">
+<link rel="stylesheet" href="assets/css/page.css">
+<script src="assets/js/site.js" defer></script>
+<style>
+  /* Синій блок «у розробці» між шапкою й підвалом (як і раніше: 18 px текст, заголовок Handjet) */
+  .soon-page { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+  .soon {
+    flex: 1 0 auto;
+    display: grid;
+    place-items: center;
+    padding: 24px 16px;
+    text-align: center;
+    background: var(--brand-primary);
+    color: var(--white);
+  }
+  .soon h1 {
+    font-family: var(--font-pixel);
+    font-weight: 500;
+    font-size: clamp(40px, 9vw, 88px);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  .soon .nowrap { white-space: nowrap; }
+  .soon .about { max-width: 640px; margin: 32px auto 0; }
+  .soon .about p { margin: 0; }
+  .soon .about p + p { margin-top: 16px; }
+  .soon .status { margin: 32px 0 0; font-size: clamp(18px, 2.4vw, 24px); color: var(--blue-200); }
+  .soon .cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.8em;
+    margin-left: 0.1em;
+    background: currentColor;
+    vertical-align: baseline;
+    animation: blink 1s steps(1) 5;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .soon .cursor { animation: none; }
+  }
+</style>
+</head>
+<body class="soon-page">
+
+<!-- Піксельні іконки дизайн-системи (сітка 16×16, колір — currentColor) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-menu" viewBox="0 0 16 16"><path fill="currentColor" d="M1 3h14v1h-14zM1 4h14v1h-14zM1 7h14v1h-14zM1 8h14v1h-14zM1 11h14v1h-14zM1 12h14v1h-14z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 16 16"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM6 5h3v1h-3zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h14v1h-14zM6 10h4v1h-4zM6 11h4v1h-4zM3 12h10v1h-10zM3 13h10v1h-10z"/></symbol>
+</svg>
+
+<!-- Шапка -->
+<header class="scm-header" data-theme="light">
+  <div class="scm-header__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <nav class="scm-header__nav" id="scm-nav" aria-label="Розділи сайту">
+      <ul>
+        <li><a href="index.html#excursions">Екскурсії</a></li>
+        <li><a href="exhibits.html">Експонати</a></li>
+        <li><a href="courses.html">Курси</a></li>
+        <li><a href="index.html#contacts">Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="scm-header__tools">
+      <div class="scm-lang" role="group" aria-label="Мова сайту">
+        <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+        <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="scm-btn scm-btn--primary scm-btn--md scm-header__cta" href="index.html#booking"><span>Записатися</span></a>
+      <button class="scm-header__menu" type="button" aria-expanded="false" aria-controls="scm-nav">
+        <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <span>Меню</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="soon" data-theme="inverse">
+  <div>
+    <h1>Software and Computer <span class="nowrap">Museum<span class="cursor" aria-hidden="true"></span></span></h1>
+    <div class="about">
+      <p>У музеї можна побачити комп’ютерну техніку 80–90-х років: персональний комп’ютер 80-х, дискету 5,25″, першу версію графічної ОС, ігрову приставку 90-х, матричний принтер і модем.</p>
+      <p>Екскурсії — для школярів і батьків, для дорослих, які пам’ятають цю техніку, а також для вчителів і організованих груп.</p>
+    </div>
+    <p class="status">Сайт у розробці</p>
+  </div>
+</main>
+
+<!-- Підвал -->
+<footer class="scm-footer" data-theme="inverse">
+  <div class="scm-footer__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <p class="scm-footer__contacts">вул. Прикладна, 1, Київ<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span> · <a href="tel:+380675394095">067 539 4095</a></p>
+    <div class="scm-lang" role="group" aria-label="Мова сайту">
+      <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+      <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <p class="scm-footer__copy">© 2026 Software and Computer Museum</p>
+  </div>
+</footer>
+
+</body>
+</html>

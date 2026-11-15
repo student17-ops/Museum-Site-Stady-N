@@ -1,0 +1,252 @@
+/*
+ * Сторінка «Курси» (courses.html). Підключається після page.css.
+ * Лише var(--…) з tokens.css; числа — тільки в @media (правило системи).
+ * Точки переходу ті самі: 1279 / 1023 / 767 / 599.
+ */
+
+/* ---------- Перший екран: цифри під кнопками ---------- */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin: var(--space-2) 0 0;
+  padding-top: var(--space-5);
+  border-top: var(--frame-width) dashed var(--border-subtle);
+  max-width: var(--hero-links-max);
+}
+.hero-stats div { display: grid; gap: var(--space-1); }
+.hero-stats dt { font: var(--type-body-sm); color: var(--text-muted); }
+.hero-stats dd { margin: 0; font: var(--type-h3); color: var(--text); }
+
+/* ---------- Як ми вчимо ---------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.feature {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  background: var(--card-surface);
+  border: var(--frame-width) solid var(--border);
+  box-shadow: var(--shadow-window);
+}
+.feature__icon {
+  display: inline-grid;
+  place-items: center;
+  width: var(--space-8);
+  height: var(--space-8);
+  background: var(--button);
+  color: var(--button-text);
+}
+.feature p { margin: 0; font: var(--type-body-sm); }
+
+/* ---------- Картка курсу ---------- */
+.course-list { display: grid; gap: var(--space-7); }
+.course { scroll-margin-top: var(--space-4); }
+.course__in {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  flex: 1;
+}
+.course__main { display: grid; gap: var(--space-4); align-content: start; padding: var(--space-6); }
+.course__side {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  padding: var(--space-6);
+  background: var(--bg-alt);
+  border-left: var(--frame-width) solid var(--border);
+}
+.course__tag {
+  justify-self: start;
+  margin: 0;
+  padding: 0 var(--space-2);
+  border: var(--frame-width) solid var(--border);
+  font: var(--type-prompt);
+  color: var(--text);
+}
+.course__desc { margin: 0; font: var(--type-lead); }
+.course__sub { margin: var(--space-2) 0 0; font: var(--type-label); color: var(--text); }
+
+.course__outcomes { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.course__outcomes li {
+  display: grid;
+  grid-template-columns: var(--icon-sm) minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: baseline;
+  font: var(--type-body-sm);
+}
+.course__outcomes .scm-icon { align-self: center; }
+
+.course__perlesson { margin: calc(-1 * var(--space-3)) 0 0; font: var(--type-body-sm); color: var(--text-muted); }
+.course__side .scm-facts__row { grid-template-columns: var(--icon-sm) minmax(0, 1fr); align-items: start; }
+.course__side .scm-facts__row .scm-icon { margin-top: var(--space-1); }
+.course__side .scm-facts__row dt { grid-column: 2; }
+.course__side .scm-facts__row dd { grid-column: 2; }
+.course__side .scm-facts { gap: var(--space-4); }
+.course__price-row { display: grid; gap: var(--space-3); padding-top: var(--space-4); border-top: var(--frame-width) dashed var(--border-subtle); }
+
+/* ---------- Розкривні блоки: програма курсу й питання ---------- */
+.disclosure { border: var(--frame-width) solid var(--border); background: var(--card-surface); }
+.disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--tap-min);
+  padding: var(--space-2) var(--space-4);
+  font: var(--type-button);
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+}
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary::after {
+  content: "+";
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: var(--space-6);
+  height: var(--space-6);
+  border: var(--frame-width) solid currentColor;
+  font: var(--type-button);
+}
+.disclosure[open] > summary::after { content: "−"; }
+.disclosure > summary:hover { background: var(--pressed-bg); }
+.disclosure[open] > summary { border-bottom: var(--frame-width) dashed var(--border-subtle); }
+.disclosure__body { padding: var(--space-4); display: grid; gap: var(--space-3); }
+.disclosure__body p { margin: 0; }
+
+.program { margin: 0; padding: 0; list-style: none; counter-reset: lesson; display: grid; gap: var(--space-2); }
+.program li {
+  counter-increment: lesson;
+  display: grid;
+  grid-template-columns: var(--space-7) minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: baseline;
+  font: var(--type-body-sm);
+}
+.program li::before {
+  content: counter(lesson, decimal-leading-zero);
+  font: var(--type-prompt);
+  color: var(--text-muted);
+}
+
+.faq { display: grid; gap: var(--space-4); max-width: var(--container); }
+
+/* ---------- Розклад ---------- */
+.schedule-wrap {
+  background: var(--card-surface);
+  border: var(--frame-width) solid var(--border);
+  box-shadow: var(--shadow-window);
+}
+.schedule { width: 100%; border-collapse: collapse; font: var(--type-body-sm); }
+.schedule caption { padding: var(--space-3) var(--space-4); text-align: left; background: var(--card-titlebar); color: var(--card-titlebar-text); font: var(--type-titlebar); text-transform: uppercase; letter-spacing: 0.04em; }
+.schedule th,
+.schedule td { padding: var(--space-4); text-align: left; vertical-align: middle; border-bottom: var(--frame-width) dashed var(--border-subtle); }
+.schedule thead th { font: var(--type-label); color: var(--text-muted); border-bottom: var(--frame-width) solid var(--border); }
+.schedule tbody tr:last-child > * { border-bottom: 0; }
+.schedule tbody th { font: var(--type-label); }
+.schedule tbody th a { color: var(--text); }
+.schedule td:last-child { text-align: right; }
+.seats { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: 600; white-space: nowrap; }
+.seats__bar { display: inline-flex; gap: var(--frame-width); }
+.seats__bar i { width: var(--space-2); height: var(--space-4); border: var(--frame-width) solid var(--border); box-sizing: border-box; }
+.seats__bar i.is-free { background: var(--text); }
+
+/* ---------- Як записатися ---------- */
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: var(--space-5); }
+.steps li { counter-increment: step; display: grid; grid-template-columns: var(--space-7) minmax(0, 1fr); gap: var(--space-4); align-items: start; }
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: var(--space-7);
+  height: var(--space-7);
+  box-sizing: border-box;
+  border: var(--frame-width) solid var(--border);
+  background: var(--button);
+  color: var(--button-text);
+  font: var(--type-h3);
+}
+.steps b { display: block; font: var(--type-label); }
+.steps p { margin: 0; font: var(--type-body-sm); }
+.steps-window .scm-window__body { gap: var(--space-5); }
+.steps-window__call { margin: 0; padding-top: var(--space-4); border-top: var(--frame-width) dashed var(--border-subtle); font: var(--type-body-sm); }
+.steps-window__call a { font-weight: 600; display: inline-flex; align-items: center; min-height: var(--tap-min); }
+
+/* Поточна сторінка в навігації (у bundle.css — лише aria-current="location") */
+.scm-header__nav a[aria-current="page"] { box-shadow: inset 0 calc(-1 * var(--current-bar)) 0 0 currentColor; }
+
+/* ---------- До 1279 ---------- */
+@media (max-width: 1279px) {
+  .course__main,
+  .course__side { padding: var(--space-5); }
+}
+
+/* ---------- До 1023 ---------- */
+@media (max-width: 1023px) {
+  .course__in { grid-template-columns: minmax(0, 1fr); }
+  .course__side { border-left: 0; border-top: var(--frame-width) solid var(--border); }
+  .features { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Смартфон: до 767 ---------- */
+@media (max-width: 767px) {
+  .hero-stats { gap: var(--space-3); }
+  .hero-stats dd { font: var(--type-h3-mobile); }
+  .course-list { gap: var(--space-6); }
+  .course__main,
+  .course__side { padding: var(--space-4); }
+  .course__desc { font: var(--type-lead-mobile); }
+  .disclosure > summary { font: var(--type-lang); padding: var(--space-2) var(--space-3); }
+  .disclosure__body { padding: var(--space-3); }
+
+  /* Таблиця розкладу → картки */
+  .schedule thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .schedule,
+  .schedule tbody,
+  .schedule tr,
+  .schedule th,
+  .schedule td { display: block; }
+  .schedule caption { display: block; }
+  .schedule tbody tr { padding: var(--space-4); border-bottom: var(--frame-width) solid var(--border); display: grid; gap: var(--space-2); }
+  .schedule tbody tr:last-child { border-bottom: 0; }
+  .schedule th,
+  .schedule td { padding: 0; border: 0; }
+  .schedule tbody th { font: var(--type-h3-mobile); }
+  .schedule td[data-label] { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--space-2); }
+  .schedule td[data-label]::before { content: attr(data-label); font-weight: 600; color: var(--text-muted); }
+  .schedule td:last-child { text-align: left; margin-top: var(--space-2); }
+  .schedule td:last-child .scm-btn { display: flex; width: 100%; }
+}
+
+/* ---------- До 599 ---------- */
+@media (max-width: 599px) {
+  .hero-stats { grid-template-columns: minmax(0, 1fr); }
+  .hero-stats div { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; }
+}
+
+/* ---------- Основний текст не дрібніший за 18 px (--type-body) ---------- */
+.hero-stats dt,
+.feature p,
+.course__outcomes li,
+.program li,
+.course__perlesson,
+.schedule,
+.steps p,
+.steps-window__call { font: var(--type-body); }
+.course__tag,
+.course__sub,
+.schedule thead th,
+.schedule tbody th,
+.steps b { font-size: var(--type-body-size); line-height: var(--type-body-line); }
+@media (max-width: 767px) {
+  .schedule tbody th { font: var(--type-h3-mobile); }
+}

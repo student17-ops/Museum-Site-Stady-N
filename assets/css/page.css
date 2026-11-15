@@ -1,0 +1,201 @@
+/*
+ * Розкладка сторінки «Екскурсії, експонати й курси».
+ * Компоненти — з дизайн-системи SCM (assets/scm/components/bundle.css, токени — assets/scm/tokens.css).
+ * Тут лише те, чого в системі немає: шрифт Handjet, контейнер, секції, перший екран, пара «форма + контакти».
+ * Значення — тільки var(--…); числа лише в @media (правило системи).
+ * Точки переходу (rules.md): 1279 — меню й 2 колонки; 1023 — одна колонка першого екрана й «форма + контакти»;
+ * 767 — смартфонні шрифти й відступи; 599 — 1 колонка карток.
+ */
+
+@font-face {
+  font-family: "Handjet";
+  src: url("../scm/fonts/Handjet-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Handjet";
+  src: url("../scm/fonts/Handjet-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+body { overflow-x: hidden; }
+
+/* Посилання в тексті — колір теми (у bundle.css не задано) */
+a { color: var(--text); text-underline-offset: var(--underline-offset); }
+.scm-footer__contacts a,
+.scm-notice a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-weight: 600;
+}
+section[id], [id="contacts"] { scroll-margin-top: var(--space-4); }
+
+.page-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+/* ---------- Шапка: кнопка «Меню» з іконкою й словом ---------- */
+.scm-header__menu {
+  gap: var(--space-2);
+  padding: 0 var(--space-3);
+  font: var(--type-lang);
+}
+@media (max-width: 1279px) {
+  .scm-header__menu { display: inline-flex; align-items: center; }
+}
+
+/* ---------- Перший екран ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-6);
+  align-items: center;
+}
+.hero-text { display: grid; gap: var(--space-5); }
+.hero-text .scm-prompt { margin: 0; }
+.hero-text .scm-hero__links { margin-top: var(--space-2); }
+
+/* 404.html: синій блок тягнеться на всю висоту, щоб під підвалом не лишалося порожнечі на високих екранах
+   (100vh — одиниця екрана, а не розмір макета, тож токена для неї немає) */
+.page-404 { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.page-404 main { flex: 1 0 auto; display: grid; }
+.page-404 .scm-hero { display: grid; align-content: center; }
+.page-404 .scm-hero__in { width: 100%; }
+
+/* 404.html: дві кнопки замість трьох — ділимо ряд навпіл (на смартфоні — стовпчик, див. 767) */
+.hero-links--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.terminal__out {
+  margin: 0;
+  font: var(--type-prompt);
+  color: var(--text);
+  white-space: pre;
+  overflow: hidden;
+}
+
+/* ---------- Секції ---------- */
+.section { padding: var(--space-8) 0; background: var(--bg); }
+.section--alt { background: var(--bg-alt); }
+
+.section-note {
+  margin: var(--space-6) 0 0;
+  font: var(--type-body-sm);
+  color: var(--text-muted);
+}
+.section-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+.section-footer .section-note { margin: 0; }
+
+/* Ціна: одиниця дрібнішим текстом */
+.scm-price__unit { font: var(--type-body-sm); color: var(--text-muted); }
+
+/* Бейдж «Заглушка» в куті фото й карти */
+.scm-photo__ph,
+.scm-map__ph { position: relative; }
+.badge-corner {
+  position: absolute;
+  left: var(--space-2);
+  top: var(--space-2);
+  margin: 0;
+  background: var(--card-surface);
+}
+
+/* ---------- Форма й контакти ---------- */
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+.scm-form { max-width: none; }
+.form-required { margin: 0; font: var(--type-body-sm); color: var(--text-muted); }
+.field-note { margin: 0; font: var(--type-label); color: var(--text); }
+.field-note:empty { display: none; }
+.scm-field__error[hidden],
+.scm-notice[hidden],
+.scm-form[hidden] { display: none; }
+.scm-notice > div { display: grid; gap: var(--space-3); justify-items: start; }
+
+.contacts { display: grid; gap: var(--space-5); }
+.contacts__title { margin: 0; }
+.contacts .scm-contacts__list > div { display: grid; }
+.scm-map__ph { box-shadow: none; }
+
+/* Заголовок «Контакти» видно лише на смартфоні (як у макеті) */
+@media (min-width: 768px) {
+  .contacts__title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Основний текст не дрібніший за 18 px (--type-body) ----------
+   У системі ці елементи мають 16 px (--type-body-sm / --type-label / --type-prompt).
+   Декор (рядок C:\MUSEUM>, позначки «Заглушка», підпис під логотипом) лишається 16 px. */
+.scm-facts__row,
+.section-note,
+.scm-footer__contacts,
+.scm-footer__copy,
+.scm-price__unit,
+.form-required,
+.scm-field__hint,
+.scm-exhibit__caption { font: var(--type-body); }
+.scm-exhibit__year { font: var(--type-body); font-family: var(--font-mono); }
+.scm-field__label,
+.scm-field__error,
+.field-note,
+.scm-contacts__list dt { font-size: var(--type-body-size); line-height: var(--type-body-line); }
+
+/* ---------- Планшет і невеликий ноутбук: до 1023 ---------- */
+@media (max-width: 1023px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+  .terminal { display: none; }
+  .booking-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- Смартфон: до 767 ---------- */
+@media (max-width: 767px) {
+  /* У bundle.css правило h3-mobile стоїть раніше за основне й перебивається — повторюємо тут */
+  .scm-window__heading,
+  .scm-notice__title { font: var(--type-h3-mobile); }
+
+  .page-container { padding: 0 var(--space-4); }
+  .hero-links--2 { grid-template-columns: minmax(0, 1fr); }
+
+  /* Поле «Напрям»: на 360px відступ space-7 під стрілку обрізає підказку.
+     Стрілці (right space-3 + chevron-width) вистачає space-6. Повна назва обраного — у рядку «Обрано: …». */
+  .scm-select select { padding-right: var(--space-6); }
+  .section { padding: var(--space-7) 0; }
+  .section-head .scm-prompt { display: none; }
+  .scm-section-header { margin-bottom: var(--space-5); }
+
+  .section-footer { flex-direction: column; align-items: stretch; }
+  .section-footer .scm-btn { display: flex; width: 100%; }
+
+  /* Контакти — окремий блок із заголовком, без рамки вікна */
+  .contacts-window { border: 0; box-shadow: none; background: transparent; }
+  .contacts-window .scm-window__bar { display: none; }
+  .contacts-window .scm-window__body { padding: 0; }
+  .scm-map .scm-btn { display: flex; width: 100%; }
+}

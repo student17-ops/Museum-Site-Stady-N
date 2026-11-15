@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Експонати — Software and Computer Museum</title>
+<meta name="description" content="Експонати Software and Computer Museum: комп'ютерна техніка 80–90-х — від дискети 5,25″ до модема.">
+<link rel="preload" href="assets/scm/fonts/Handjet-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/scm/fonts/Handjet-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/scm/components/bundle.css">
+<link rel="stylesheet" href="assets/css/page.css">
+<link rel="stylesheet" href="assets/css/exhibits.css">
+<script src="assets/js/site.js" defer></script>
+</head>
+<body>
+
+<!-- Піксельні іконки дизайн-системи (сітка 16×16, колір — currentColor) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow-right" viewBox="0 0 16 16"><path fill="currentColor" d="M8 2h1v1h-1zM8 3h2v1h-2zM8 4h3v1h-3zM8 5h4v1h-4zM1 6h12v1h-12zM1 7h13v1h-13zM1 8h13v1h-13zM1 9h12v1h-12zM8 10h4v1h-4zM8 11h3v1h-3zM8 12h2v1h-2zM8 13h1v1h-1z"/></symbol>
+  <symbol id="i-people" viewBox="0 0 16 16"><path fill="currentColor" d="M2 2h4v1h-4zM10 2h4v1h-4zM2 3h4v1h-4zM10 3h4v1h-4zM2 4h4v1h-4zM10 4h4v1h-4zM2 5h4v1h-4zM10 5h4v1h-4zM2 7h4v1h-4zM10 7h4v1h-4zM1 8h6v1h-6zM9 8h6v1h-6zM1 9h6v1h-6zM9 9h6v1h-6zM1 10h6v1h-6zM9 10h6v1h-6zM1 11h6v1h-6zM9 11h6v1h-6zM1 12h6v1h-6zM9 12h6v1h-6zM1 13h6v1h-6zM9 13h6v1h-6z"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 16 16"><path fill="currentColor" d="M0 3h16v1h-16zM0 4h1v1h-1zM10 4h1v1h-1zM15 4h1v1h-1zM0 5h1v1h-1zM15 5h1v1h-1zM1 6h1v1h-1zM10 6h1v1h-1zM14 6h1v1h-1zM2 7h1v1h-1zM14 7h1v1h-1zM2 8h1v1h-1zM10 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM14 9h1v1h-1zM0 10h1v1h-1zM10 10h1v1h-1zM15 10h1v1h-1zM0 11h1v1h-1zM15 11h1v1h-1zM0 12h16v1h-16z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 16 16"><path fill="currentColor" d="M2 2h12v1h-12zM1 3h14v1h-14zM0 4h3v1h-3zM13 4h3v1h-3zM0 5h3v1h-3zM13 5h3v1h-3zM5 6h6v1h-6zM4 7h8v1h-8zM3 8h10v1h-10zM2 9h3v1h-3zM6 9h1v1h-1zM9 9h1v1h-1zM11 9h3v1h-3zM2 10h12v1h-12zM2 11h3v1h-3zM6 11h1v1h-1zM9 11h1v1h-1zM11 11h3v1h-3zM2 12h12v1h-12zM2 13h12v1h-12z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 16 16"><path fill="currentColor" d="M1 3h14v1h-14zM1 4h14v1h-14zM1 7h14v1h-14zM1 8h14v1h-14zM1 11h14v1h-14zM1 12h14v1h-14z"/></symbol>
+  <symbol id="i-floppy" viewBox="0 0 16 16"><path fill="currentColor" d="M1 1h13v1h-13zM1 2h3v1h-3zM10 2h5v1h-5zM1 3h3v1h-3zM10 3h1v1h-1zM13 3h2v1h-2zM1 4h3v1h-3zM10 4h1v1h-1zM13 4h2v1h-2zM1 5h3v1h-3zM10 5h5v1h-5zM1 6h14v1h-14zM1 7h14v1h-14zM1 8h2v1h-2zM13 8h2v1h-2zM1 9h2v1h-2zM13 9h2v1h-2zM1 10h2v1h-2zM13 10h2v1h-2zM1 11h2v1h-2zM13 11h2v1h-2zM1 12h2v1h-2zM13 12h2v1h-2zM1 13h14v1h-14zM1 14h14v1h-14z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 16 16"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM4 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h1v1h-1zM6 5h3v1h-3zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h14v1h-14zM6 10h4v1h-4zM6 11h4v1h-4zM3 12h10v1h-10zM3 13h10v1h-10z"/></symbol>
+</svg>
+
+<!-- Шапка -->
+<header class="scm-header" data-theme="light">
+  <div class="scm-header__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <nav class="scm-header__nav" id="scm-nav" aria-label="Розділи сайту">
+      <ul>
+        <li><a href="index.html#excursions">Екскурсії</a></li>
+        <li><a href="exhibits.html" aria-current="page">Експонати</a></li>
+        <li><a href="courses.html">Курси</a></li>
+        <li><a href="index.html#contacts">Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="scm-header__tools">
+      <div class="scm-lang" role="group" aria-label="Мова сайту">
+        <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+        <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="scm-btn scm-btn--primary scm-btn--md scm-header__cta" href="index.html#booking"><span>Записатися</span></a>
+      <button class="scm-header__menu" type="button" aria-expanded="false" aria-controls="scm-nav">
+        <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+        <span>Меню</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. Перший екран -->
+<section class="scm-hero" id="top" data-theme="inverse" aria-labelledby="hero-title">
+  <div class="scm-hero__in hero-text">
+    <p class="scm-prompt" aria-hidden="true">C:\MUSEUM\ЕКСПОНАТИ&gt; dir<span class="scm-cursor"></span></p>
+    <h1 class="scm-display" id="hero-title">Експонати</h1>
+    <p class="scm-lead">Комп'ютерна техніка 80–90-х, яку можна побачити в залах музею. Більшість речей працює — їх можна ввімкнути на екскурсії.<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></p>
+  </div>
+</section>
+
+<!-- 2. Експонати -->
+<section class="section section--alt" id="exhibits" data-theme="light" aria-labelledby="exhibits-title">
+  <div class="page-container">
+    <header class="scm-section-header section-head">
+      <p class="scm-prompt" aria-hidden="true">C:\MUSEUM\ЕКСПОНАТИ&gt; dir /w</p>
+      <h2 class="scm-h2" id="exhibits-title">У нашій колекції</h2>
+    </header>
+
+    <!--
+      Фото: коли музей надішле знімки, замініть блок .scm-photo__ph на
+      <img src="assets/img/exhibits/….jpg" alt="…" width="…" height="…" loading="lazy">
+      і перенесіть у alt текст з aria-label заглушки. Звірте опис зі справжнім знімком:
+      alt має казати, що саме видно на фото і навіщо воно тут, а не просто «фото» чи «експонат».
+    -->
+    <div class="scm-grid exhibits-grid">
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex1">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_01</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Персональний комп'ютер 80-х у залі музею: системний блок, клавіатура й монітор. Показує, на чому родини вчилися програмувати й грати"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex1">Персональний комп'ютер 80-х</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1985</dd></div>
+          </dl>
+          <p class="exhibit-desc">Домашній комп'ютер, на якому цілі родини вчилися програмувати й грати в перші ігри.</p>
+        </div>
+      </article>
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex2">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_02</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Дискета 5,25 дюйма в паперовому конверті. Показує, на чому колись зберігали й передавали програми"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-floppy"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex2">Дискета 5,25″</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1978</dd></div>
+          </dl>
+          <p class="exhibit-desc">Гнучкий диск у паперовому конверті. На ньому вміщалася ціла програма разом з інструкцією.</p>
+        </div>
+      </article>
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex3">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_03</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Екран першої графічної операційної системи з вікнами й піктограмами на комп'ютері з колекції музею. Саме з такого інтерфейсу походить вигляд цього сайту"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex3">Перша версія графічної ОС</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1985</dd></div>
+          </dl>
+          <p class="exhibit-desc">Вікна, піктограми й миша замість набору команд. Звідси походить вигляд цього сайту.</p>
+        </div>
+      </article>
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex4">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_04</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Ігрова приставка 90-х із двома джойстиками й картриджем. На ній можна зіграти просто в залі музею"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-people"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex4">Ігрова приставка 90-х</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1991</dd></div>
+          </dl>
+          <p class="exhibit-desc">Картриджі, два джойстики й телевізор у вітальні. Зіграти на ній можна просто в залі.</p>
+        </div>
+      </article>
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex5">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_05</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Матричний принтер із заправленим папером з перфорацією по краях. Показує, як друкували документи в офісах 80-х"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-ticket"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex5">Матричний принтер</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1984</dd></div>
+          </dl>
+          <p class="exhibit-desc">Друкував рядок за рядком на папері з перфорацією, і його було чути на весь офіс.</p>
+        </div>
+      </article>
+
+      <article class="scm-window scm-exhibit exhibit-card" aria-labelledby="ex6">
+        <div class="scm-window__bar"><span class="scm-window__title">ЕКСПОНАТ_06</span><span class="scm-window__ctrl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="scm-photo"><div class="scm-photo__ph" role="img" aria-label="Зовнішній модем з індикаторами на передній панелі. Через такий пристрій комп'ютери 90-х під'єднувалися до інтернету телефонною лінією"><span class="scm-badge badge-corner" aria-hidden="true">Фото — [ЗАПОВНИТИ]</span><svg class="scm-icon" width="48" height="48" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></div></div>
+        <div class="scm-window__body">
+          <h3 class="scm-window__heading" id="ex6">Модем</h3>
+          <dl class="exhibit-facts">
+            <div><dt>Виробник</dt><dd><span class="fill-me">[ЗАПОВНИТИ]</span></dd></div>
+            <div><dt>Рік випуску</dt><dd>1993</dd></div>
+          </dl>
+          <p class="exhibit-desc">З'єднував комп'ютер з інтернетом через телефонну лінію. Його звук з'єднання багато хто пам'ятає досі.</p>
+        </div>
+      </article>
+
+    </div>
+    <div class="section-footer">
+      <p class="section-note">Фото, описи й роки — тимчасові. Виробників ще не надано.<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span></p>
+      <a class="scm-btn scm-btn--primary scm-btn--md" href="index.html#excursions"><svg class="scm-icon" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg><span>Подивитися на екскурсії</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Підвал -->
+<footer class="scm-footer" data-theme="inverse">
+  <div class="scm-footer__in">
+    <a class="scm-wordmark" href="index.html" aria-label="Software and Computer Museum — на головну">
+      <svg class="scm-icon" width="32" height="32" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><use href="#i-monitor"/></svg>
+      <span><b>SCM</b><small>Software and Computer Museum</small></span>
+    </a>
+    <p class="scm-footer__contacts">вул. Прикладна, 1, Київ<span class="scm-badge" title="Тимчасовий вміст — замінити перед запуском">Заглушка</span> · <a href="tel:+380675394095">067 539 4095</a></p>
+    <div class="scm-lang" role="group" aria-label="Мова сайту">
+      <button class="scm-lang__opt" type="button" lang="uk" data-lang="ua" aria-pressed="true">UA</button>
+      <button class="scm-lang__opt" type="button" lang="en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <p class="scm-footer__copy">© 2026 Software and Computer Museum</p>
+  </div>
+</footer>
+
+</body>
+</html>

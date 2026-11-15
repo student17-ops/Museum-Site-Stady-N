@@ -1,0 +1,175 @@
+@import url("../tokens.css");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=swap");
+
+/* Software and Computer Museum — компоненти. Кольори, відступи, розміри — лише з tokens.json.
+   За ТЗ: Handjet (--font-pixel) — заголовки H1–H3, кнопки, навігація, перемикач мови й декор; найменший піксельний розмір 20px.
+   IBM Plex Sans (--font-text, без засічок) — увесь текст для читання: абзаци, підписи, поля, ціни. */
+html { color-scheme: light; }
+body { margin: 0; background: var(--bg); color: var(--text); font: var(--type-body); }
+[data-theme] { background: var(--bg); color: var(--text); }
+.scm-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.scm-icon { display: inline-block; flex: none; vertical-align: middle; }
+
+:where(a, button, input, select, [tabindex]):focus-visible { outline: var(--focus-width) solid var(--focus); outline-offset: var(--focus-offset); }
+
+/* Заголовки */
+.scm-display { font: var(--type-display); margin: 0; color: var(--text); text-wrap: balance; }
+.scm-h2 { font: var(--type-h2); margin: 0; color: var(--text); }
+.scm-lead { font: var(--type-lead); margin: 0; color: var(--text); max-width: 40em; }
+.scm-prompt { font: var(--type-prompt); color: var(--text-muted); margin: 0 0 var(--space-2); }
+.scm-section-header { display: grid; gap: var(--space-3); margin-bottom: var(--space-6); }
+@media (max-width: 767px) {
+  .scm-display { font: var(--type-display-mobile); }
+  .scm-h2 { font: var(--type-h2-mobile); }
+  .scm-window__heading, .scm-notice__title { font: var(--type-h3-mobile); }
+  .scm-lead { font: var(--type-lead-mobile); }
+}
+
+/* Курсор */
+.scm-cursor { display: inline-block; width: 0.6em; height: 1em; margin-left: var(--frame-width); vertical-align: -0.15em; background: currentColor; animation: scm-blink 1s steps(1) 5; }
+@keyframes scm-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .scm-cursor { animation: none; } }
+@media (max-width: 767px) { .scm-cursor { animation: none; } }
+
+/* Кнопка */
+.scm-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--control-height); min-width: var(--tap-min); padding: 0 var(--space-5); box-sizing: border-box;
+  font: var(--type-button); text-decoration: none; cursor: pointer;
+  border: var(--frame-width) solid var(--border); border-radius: var(--radius-none); box-shadow: var(--shadow-window); transition: none; }
+.scm-btn--primary { background: var(--button); color: var(--button-text); }
+.scm-btn--primary:hover { background: var(--button-hover); color: var(--button-hover-text); }
+.scm-btn--secondary { background: var(--card-surface); color: var(--text); }
+.scm-btn--secondary:hover { background: var(--text); color: var(--bg); }
+.scm-btn:active { transform: translate(var(--press-offset), var(--press-offset)); box-shadow: var(--shadow-pressed); }
+.scm-btn--lg { min-height: var(--control-height-lg); font: var(--type-button-lg); padding: 0 var(--space-6); }
+.scm-btn--block { display: flex; width: 100%; }
+.scm-btn:disabled, .scm-btn[aria-disabled="true"] { background: var(--disabled-bg); color: var(--disabled-text); border-color: var(--disabled-border); border-style: dashed; box-shadow: none; cursor: not-allowed; transform: none; }
+
+/* Бейдж «Заглушка» */
+.scm-badge { display: inline-block; margin-left: var(--space-2); padding: 0 var(--space-2); border: var(--frame-width) dashed var(--text-muted); border-radius: var(--radius-pixel);
+  font: var(--type-prompt); color: var(--text-muted); vertical-align: middle; white-space: nowrap; }
+
+/* Перемикач мови */
+.scm-lang { display: inline-flex; border: var(--frame-width) solid var(--border); border-radius: var(--radius-pixel); }
+.scm-lang__opt { min-width: var(--tap-min); min-height: var(--tap-min); padding: 0 var(--space-2); border: 0; background: var(--bg); color: var(--text);
+  font: var(--type-lang); cursor: pointer; }
+.scm-lang__opt:hover { text-decoration: underline; text-decoration-thickness: var(--underline-hover); text-underline-offset: var(--underline-offset); }
+.scm-lang__opt:active { background: var(--pressed-bg); color: var(--pressed-text); }
+.scm-lang__opt[aria-pressed="true"] { background: var(--button); color: var(--button-text); text-decoration: underline; text-decoration-thickness: var(--underline-selected); text-underline-offset: var(--underline-offset); }
+.scm-lang__opt + .scm-lang__opt { border-left: var(--frame-width) solid var(--border); }
+
+/* Вікно */
+.scm-window { display: flex; flex-direction: column; background: var(--card-surface); color: var(--text); border: var(--frame-width) solid var(--border); box-shadow: var(--shadow-window); min-width: 0; }
+.scm-window__bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: var(--titlebar-height); padding: 0 var(--space-2) 0 var(--space-3);
+  background: var(--card-titlebar); color: var(--card-titlebar-text); font: var(--type-titlebar); text-transform: uppercase; letter-spacing: 0.04em; }
+.scm-window__title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scm-window__ctrl { display: inline-flex; gap: var(--space-1); }
+.scm-window__ctrl i { width: var(--titlebar-control); height: var(--titlebar-control); box-sizing: border-box; border: var(--frame-width) solid currentColor; }
+.scm-window__body { padding: var(--space-5); display: grid; gap: var(--space-3); align-content: start; flex: 1; }
+.scm-window__heading { font: var(--type-h3); margin: 0; color: var(--text); }
+.scm-window__footer { padding: 0 var(--space-5) var(--space-5); display: grid; gap: var(--space-3); }
+@media (max-width: 767px) {
+  .scm-window__body { padding: var(--space-4); }
+  .scm-window__footer { padding: 0 var(--space-4) var(--space-4); }
+  .scm-window__ctrl { display: none; }
+}
+
+/* Картка екскурсії/курсу */
+.scm-offer__desc { margin: 0; }
+.scm-facts { margin: 0; display: grid; gap: var(--space-2); }
+.scm-facts__row { display: grid; grid-template-columns: var(--icon-sm) auto 1fr; align-items: center; gap: var(--space-2); font: var(--type-body-sm); }
+.scm-facts__row .scm-icon { color: var(--text); }
+.scm-facts dt { font-weight: 600; }
+.scm-facts dt::after { content: ":"; }
+.scm-facts dd { margin: 0; }
+.scm-price { margin: 0; font: var(--type-price); color: var(--text); }
+
+/* Експонат */
+.scm-photo { aspect-ratio: 4 / 3; border-bottom: var(--frame-width) solid var(--border); background: var(--photo-bg); overflow: hidden; }
+.scm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.scm-photo__ph { width: 100%; height: 100%; display: grid; place-items: center; color: var(--brand-secondary);
+  background-image: radial-gradient(var(--photo-dots) var(--photo-dot), transparent calc(var(--photo-dot) * 1.5)); background-size: var(--space-2) var(--space-2); }
+.scm-exhibit__year { margin: 0; font: var(--type-prompt); color: var(--text-muted); }
+.scm-exhibit__caption { margin: 0; font: var(--type-body-sm); }
+
+/* Сітка карток (для сторінки) */
+.scm-grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1279px) { .scm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 599px) { .scm-grid { grid-template-columns: 1fr; } }
+
+/* Шапка */
+.scm-header { background: var(--bg); border-bottom: var(--frame-width) solid var(--border); position: relative; }
+.scm-header__in { max-width: var(--container); margin: 0 auto; padding: var(--space-3) var(--space-5); display: flex; align-items: center; gap: var(--space-5); }
+.scm-header__nav { flex: 1; }
+.scm-header__nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--space-2); }
+.scm-header__nav a { display: inline-flex; align-items: center; min-height: var(--tap-min); padding: 0 var(--space-3); font: var(--type-button); color: var(--text); text-decoration: none; }
+.scm-header__nav a:hover { text-decoration: underline; text-decoration-thickness: var(--underline-hover); text-underline-offset: var(--underline-offset); }
+.scm-header__nav a:active { background: var(--pressed-bg); color: var(--pressed-text); }
+.scm-header__nav a[aria-current="location"] { box-shadow: inset 0 calc(-1 * var(--current-bar)) 0 0 currentColor; }
+.scm-header__tools { display: flex; align-items: center; gap: var(--space-3); }
+.scm-header__menu { display: none; min-width: var(--tap-min); min-height: var(--tap-min); border: var(--frame-width) solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; padding: var(--space-1); }
+.scm-wordmark { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text); text-decoration: none; min-height: var(--tap-min); }
+.scm-wordmark b { display: block; font: var(--type-wordmark); }
+.scm-wordmark small { display: block; font: var(--type-label); color: var(--text-muted); max-width: 12em; }
+@media (max-width: 1279px) {
+  .scm-header__in { flex-wrap: wrap; gap: var(--space-3); padding: var(--space-2) var(--space-4); }
+  .scm-header__in > .scm-wordmark { flex: 1; }
+  .scm-wordmark small { display: none; }
+  .scm-header__menu { display: inline-grid; place-items: center; }
+  .scm-header__cta { display: none; }
+  .scm-header__nav { display: none; order: 3; flex-basis: 100%; }
+  .scm-header.is-open .scm-header__nav { display: block; }
+  .scm-header__nav ul { flex-direction: column; padding-bottom: var(--space-3); }
+}
+
+/* Перший екран */
+.scm-hero { padding: var(--space-9) var(--space-5); }
+.scm-hero__in { max-width: var(--container); margin: 0 auto; display: grid; gap: var(--space-5); }
+.scm-hero__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); margin-top: var(--space-4); max-width: var(--hero-links-max); }
+@media (max-width: 767px) {
+  .scm-hero { padding: var(--space-7) var(--space-4); }
+  .scm-hero__links { grid-template-columns: 1fr; gap: var(--space-3); }
+}
+
+/* Поля форми */
+.scm-form { display: grid; gap: var(--space-5); max-width: var(--form-max); }
+.scm-field { display: grid; gap: var(--space-1); }
+.scm-field__label { font: var(--type-label); }
+.scm-field__hint { margin: 0; font: var(--type-body-sm); color: var(--text-muted); }
+.scm-input { width: 100%; box-sizing: border-box; min-height: var(--control-height); padding: 0 var(--space-3); font: var(--type-body); color: var(--field-text);
+  background: var(--field-bg); border: var(--frame-width) solid var(--field-border); border-radius: var(--radius-none); appearance: none; }
+.scm-input::placeholder { color: var(--field-placeholder); opacity: 1; }
+.scm-input:hover { box-shadow: inset 0 0 0 calc(var(--frame-width) / 2) var(--field-border); }
+.scm-input:disabled, .scm-input[readonly] { background: var(--field-disabled-bg); color: var(--field-disabled-text); border-color: var(--field-disabled-border); border-style: dashed; }
+.scm-select { position: relative; }
+.scm-select::after { content: ""; position: absolute; right: var(--space-3); top: 50%; width: var(--chevron-width); height: var(--chevron-height); margin-top: calc(var(--chevron-height) / -2); pointer-events: none;
+  background: var(--field-text); clip-path: polygon(0 0, 100% 0, 100% 25%, 83% 25%, 83% 50%, 67% 50%, 67% 75%, 33% 75%, 33% 50%, 17% 50%, 17% 25%, 0 25%); }
+.scm-select select { padding-right: var(--space-7); }
+.scm-field.has-error .scm-input { border-width: var(--error-frame-width); border-style: double; border-color: var(--error-field-border); }
+[data-theme="inverse"] .scm-field.has-error .scm-input { box-shadow: 0 0 0 var(--frame-width) var(--bg), 0 0 0 calc(var(--frame-width) * 2) var(--border); }
+.scm-field__error { display: flex; align-items: center; gap: var(--space-2); margin: 0; font: var(--type-label); color: var(--error); }
+
+/* Повідомлення */
+.scm-notice { display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-5); background: var(--card-surface); color: var(--text); border: var(--frame-width) solid var(--border); box-shadow: var(--shadow-window); }
+.scm-notice .scm-icon { color: var(--text); }
+.scm-notice--error { border-width: var(--error-frame-width); border-style: double; box-shadow: none; }
+.scm-notice__title { margin: 0; font: var(--type-h3); color: var(--text); }
+.scm-notice p { margin: 0; }
+
+/* Контакти */
+.scm-contacts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-6); align-items: start; }
+.scm-contacts__list { margin: 0; display: grid; gap: var(--space-5); }
+.scm-contacts__list dt { display: flex; align-items: center; gap: var(--space-2); font: var(--type-label); color: var(--text); }
+.scm-contacts__list dd { margin: var(--space-1) 0 0; }
+.scm-contacts__list a { color: var(--text); font-weight: 600; text-underline-offset: var(--underline-offset); display: inline-flex; align-items: center; min-height: var(--tap-min); }
+.scm-hours { display: flex; justify-content: space-between; gap: var(--space-4); max-width: var(--hours-max); }
+.scm-map { display: grid; gap: var(--space-4); justify-items: start; }
+.scm-map__ph, .scm-map > iframe { width: 100%; aspect-ratio: 16 / 10; border: var(--frame-width) solid var(--border); box-shadow: var(--shadow-window); box-sizing: border-box; }
+.scm-map__ph { display: grid; place-items: center; color: var(--brand-secondary); background: var(--photo-bg);
+  background-image: linear-gradient(var(--photo-dots) var(--frame-width), transparent var(--frame-width)), linear-gradient(90deg, var(--photo-dots) var(--frame-width), transparent var(--frame-width)); background-size: var(--map-grid) var(--map-grid); }
+@media (max-width: 767px) { .scm-contacts { grid-template-columns: 1fr; } }
+
+/* Підвал */
+.scm-footer { border-top: var(--frame-width) solid var(--border); }
+.scm-footer__in { max-width: var(--container); margin: 0 auto; padding: var(--space-6) var(--space-5); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); }
+.scm-footer__contacts { margin: 0; flex: 1; min-width: var(--footer-contacts-min); font: var(--type-body-sm); }
+.scm-footer__copy { margin: 0; flex-basis: 100%; font: var(--type-body-sm); color: var(--text-muted); }
